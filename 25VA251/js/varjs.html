@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Java Script</h1>
+    <script>
+        var myName="janhvi";
+        console.log("my name"+myName);
+        console.log(typeof(myName));
+        var myMob=7985735879;
+        console.log("my mobile no"+myMob);
+        var isMarried=true;
+        console.log(myName+"is married"+isMarried);
+        console.log(typeof(isMarried))
+
+    var myAdd;
+    console.log(myName+"address is"+myAdd);
+    console.log(typeof(myAdd));
+    var myEmail=null;
+    console.log(myName+"email address"+myEmail);
+    console.log(typeof(myEmail));
+  
+     //bigint
+     var myValue=BigInt(2394940506906099009909);
+     console.log(myValue);
+     console.log(typeof(myValue));
+     var val1=Symbol("hello");
+     var val2=Symbol("hello");
+     console.log(val1==val2);
+     console.log(typeof(val1)+"add"+typeof(val2));
+     //object
+     let myInfo={
+        name:"janhvi",age:23,mob:7985735879,
+        email:"janhvi@gmail.com",
+        isMarried:false,
+        adress:null,
+        branch:"cse",
+        section:18
+       
+
+     };
+      console.log(myInfo);
+      console.log(Object.keys(myInfo).length);
+      console.log(myInfo.branch);
+      //array
+      let studentsDetails=["janhvi",24,false,"janhvipathak78@gmail.com","gzb"];
+      console.log(studentsDetails[2]);
+      console.log(studentsDetails.length);
+
+      for(i=0;i<studentsDetails.length;i++){
+      console.log(studentsDetails[i]);
+      }
+      //function
+      function myCal(){
+         let num1=5;
+         let num2=10;
+         let result=num1+num2;
+         console.log("addition of two no is "+(num1+num2));
+         console.log(result);
+      }
+
+    myCal();
+    
+    </script>
+</body>
+</html>
