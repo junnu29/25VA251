@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Grade Calculator</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+    width:450px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+label{
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:2px solid #ccc;
+    border-radius:8px;
+}
+
+input:focus{
+    border-color:#667eea;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#667eea;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4d5bd4;
+}
+
+#result{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#f4f4f4;
+    font-size:18px;
+    line-height:30px;
+}
+
+.grade{
+    font-size:22px;
+    font-weight:bold;
+    color:green;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Grade Calculator</h1>
+
+<label>Enter Number of Subjects</label>
+
+<input type="number" id="sub" placeholder="Enter subjects">
+
+<button onclick="calculateGrade()">
+Calculate Result
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculateGrade()
+{
+    let n = parseInt(document.getElementById("sub").value);
+
+    if(isNaN(n) || n<=0)
+    {
+        alert("Please Enter Valid Number of Subjects");
+        return;
+    }
+
+    let totalMarks = 0;
+
+    for(let i=1;i<=n;i++)
+    {
+        let marks = parseInt(
+        prompt("Enter Marks of Subject " + i));
+
+        if(isNaN(marks) || marks<0 || marks>100)
+        {
+            alert("Invalid Marks Entered");
+            return;
+        }
+
+        totalMarks = totalMarks + marks;
+    }
+
+    let average = totalMarks / n;
+
+    let grade = "";
+    let remarks = "";
+
+    if(average >= 90)
+    {
+        grade = "A+";
+        remarks = "Excellent Performance";
+    }
+    else if(average >= 80)
+    {
+        grade = "A";
+        remarks = "Very Good";
+    }
+    else if(average >= 70)
+    {
+        grade = "B";
+        remarks = "Good";
+    }
+    else if(average >= 60)
+    {
+        grade = "C";
+        remarks = "Average";
+    }
+    else
+    {
+        grade = "Fail";
+        remarks = "Need Improvement";
+    }
+
+    document.getElementById("result").innerHTML =
+    "<h3>Result Summary</h3>" +
+    "<p><b>Total Marks :</b> " + totalMarks + "</p>" +
+    "<p><b>Average :</b> " + average.toFixed(2) + "</p>" +
+    "<p class='grade'>Grade : " + grade + "</p>" +
+    "<p><b>Remarks :</b> " + remarks + "</p>";
+}
+
+</script>
+
+</body>
+</html>
